@@ -6,7 +6,7 @@ import TopOfPageIntro from "./DailyJournal/TopOfPage";
 import JournalEntryForm from "./DailyJournal/JournalEntryForm";
 import FeelingsSort from "./DailyJournal/FeelingsSort";
 import JournalEntryList from "./DailyJournal/JournalEntryList";
-const Journal = () => {
+const Journal = (props) => {
   return (
     <>
       <TopOfPageIntro />
@@ -15,8 +15,8 @@ const Journal = () => {
         <FeelingsSort />
       </div>
       <div id="body_mainDivideCard" className="plainBackground_BlackBorder">
-        <JournalEntryCard />
-        <JournalEntryList />
+        <JournalEntryCard {...props} />
+        <JournalEntryList {...props} />
       </div>
     </>
   );
