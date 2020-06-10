@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ManagerJournalEntries from "../../modules/ManagerJournalEntries";
+import JournalEntryCard from "./journalEntryCard";
 
-const JournalEntryList = () => {
+const JournalEntryList = (props) => {
+  const [entries] = useState([]);
+
   const getEntries = () => {
     return ManagerJournalEntries.getAll().then((entriesFromAPI) => {
       //wait for it later
@@ -15,7 +18,9 @@ const JournalEntryList = () => {
 
   return (
     <div className="container-cards">
-      We'll put some entries here eventually...
+      {entries.map((entry) => (
+        <JournalEntryCard key={entry.id} entry={entry} {...props} />
+      ))}
     </div>
   );
 };
